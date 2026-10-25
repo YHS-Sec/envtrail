@@ -58,11 +58,21 @@ function version(value: unknown, path: string): string {
   return result;
 }
 export function normalizeNodeVersion(value: unknown): string | null {
-  if (typeof value !== 'string') return null;
-  const token = value
-    .split(/\r?\n/)
-    .map((line) => line.replace(/\s+#.*$/, '').trim())
-    .find((line) => line && !line.startsWith('#'));
+  if (typeof value !== 'string' || value.length > 4096) return null;
+  let token: string | undefined;
+  for (const sourceLine of value.split(/\r?\n/)) {
+    let line = sourceLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    // Scan comment markers once rather than retrying an unanchored whitespace regex.
+    for (let index = line.indexOf('#'); index !== -1; index = line.indexOf('#', index + 1)) {
+      if (index > 0 && line[index - 1]?.trim() === '') {
+        line = line.slice(0, index).trimEnd();
+        break;
+      }
+    }
+    token = line;
+    break;
+  }
   if (!token || token.length > 128) return null;
   if (/^v?\d+(?:\.\d+){0,2}(?:-[0-9A-Za-z.-]+)?$/.test(token) && semver.validRange(token))
     return token;

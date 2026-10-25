@@ -71,3 +71,17 @@ test('only safe Node version declarations and pinned package managers survive no
   assert.equal(normalizePackageManager('npm@latest'), null);
   assert.equal(normalizePackageManager('https://example.invalid/private'), null);
 });
+
+test(
+  'Node version comments use bounded linear scans for adversarial whitespace and hashes',
+  { timeout: 1000 },
+  () => {
+    assert.equal(normalizeNodeVersion(`22${' \t'.repeat(1500)}#${'#'.repeat(500)}`), '22');
+    assert.equal(normalizeNodeVersion(`22${' '.repeat(4000)}x`), null);
+    assert.equal(normalizeNodeVersion(`22${' #'.repeat(100_000)}`), null);
+    assert.equal(normalizeNodeVersion(`22${' '.repeat(100_000)}x`), null);
+    assert.equal(normalizeNodeVersion(' # comment\r\n\t lts/jod\t # team alias\r\n'), 'lts/jod');
+    assert.equal(normalizeNodeVersion('\n  v22.14.0  # comment with # repeated\n'), 'v22.14.0');
+    assert.equal(normalizeNodeVersion('v22.14.0#attached-is-not-a-comment'), null);
+  },
+);

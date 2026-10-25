@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { constants } from 'node:fs';
 import { lstat, open, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import semver from 'semver';
@@ -18,12 +19,28 @@ async function readFileBounded(
   const filename = path.join(directory, name);
   let handle;
   try {
-    const stat = await lstat(filename);
-    if (stat.isSymbolicLink() || !stat.isFile())
+    // Open first: pathname checks must never authorize a later open of a different file.
+    // NONBLOCK also prevents a substituted FIFO from blocking before fstat can reject it.
+    const flags =
+      constants.O_RDONLY |
+      (process.platform === 'win32'
+        ? 0
+        : (constants.O_NOFOLLOW ?? 0) | (constants.O_NONBLOCK ?? 0));
+    handle = await open(filename, flags);
+    const stat = await handle.stat();
+    if (!stat.isFile())
       throw new Error(`Cannot read ${name}: expected a regular file, not a link.`);
+    if (process.platform === 'win32') {
+      // Windows has no O_NOFOLLOW. Reject links and replacement paths after opening,
+      // and only read from the already-opened, identity-checked file handle.
+      const pathnameStat = await lstat(filename);
+      if (pathnameStat.isSymbolicLink() || !pathnameStat.isFile())
+        throw new Error(`Cannot read ${name}: expected a regular file, not a link.`);
+      if (pathnameStat.dev !== stat.dev || pathnameStat.ino !== stat.ino)
+        throw new Error(`Cannot read ${name}: file changed while being captured.`);
+    }
     if (stat.size > maximum)
       throw new Error(`Cannot read ${name}: file exceeds the ${maximum} byte safety limit.`);
-    handle = await open(filename, 'r');
     const bytes = Buffer.alloc(Math.min(stat.size + 1, maximum + 1));
     let total = 0;
     while (total < bytes.length) {
@@ -43,7 +60,10 @@ async function readFileBounded(
       throw new Error(`Cannot read ${name}: file changed while being captured.`);
     return bytes.subarray(0, total);
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null;
+    const code = (error as NodeJS.ErrnoException).code;
+    if (code === 'ENOENT') return null;
+    if (code === 'ELOOP' || code === 'EISDIR')
+      throw new Error(`Cannot read ${name}: expected a regular file, not a link.`);
     if (error instanceof Error && error.message.startsWith('Cannot read ')) throw error;
     throw new Error(`Cannot read ${name}. Check its permissions and try again.`);
   } finally {
