@@ -12,6 +12,8 @@ EnvTrail is a local CLI for Node.js projects. Capture a teammate's working envir
 
 No account, upload, or background service. Environment variable **values are never recorded in snapshots or reports**.
 
+EnvTrail runs locally and requires no paid service or external AI API. This public project uses standard GitHub Actions, GitHub Pages for the demo, and GitHub Releases for packages, with no hosted backend.
+
 ![EnvTrail comparison report showing environment differences with synthetic data](docs/assets/demo.png)
 
 _A sample comparison using synthetic environments._

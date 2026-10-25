@@ -12,6 +12,8 @@ EnvTrail은 Node.js 프로젝트의 개발 환경을 비교하는 로컬 CLI입�
 
 가입, 업로드, 백그라운드 서비스가 필요하지 않습니다. 환경변수의 **실제 값은 스냅샷과 리포트에 저장하지 않습니다**.
 
+EnvTrail은 로컬에서 실행되며 유료 서비스나 외부 AI API가 필요하지 않습니다. 공개 프로젝트의 자동화는 표준 GitHub Actions, 데모는 GitHub Pages, 패키지 배포는 GitHub Releases를 사용하며 별도 호스팅 백엔드가 없습니다.
+
 ![가상 데이터로 개발 환경의 차이를 보여주는 EnvTrail 비교 리포트](docs/assets/demo.png)
 
 _가상 환경을 사용한 비교 예시입니다._

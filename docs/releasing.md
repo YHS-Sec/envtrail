@@ -55,9 +55,11 @@ git push origin v0.2.0
 
 The [release workflow](../.github/workflows/package.yml) runs on `v*` tags. It verifies that the tag equals `v` plus the package version, runs the project checks, builds an npm tarball, and creates `SHA256SUMS.txt`.
 
-The build job has read access. A separate release job receives the verified package artifact, checks its SHA-256 checksum, and uses GitHub's temporary workflow token to publish a GitHub Release with generated notes. It requires the tag to exist and attaches both the `.tgz` package and checksum file. No npm publishing token or long-lived release key is needed.
+The verification job has read access. After it succeeds, a separate release job checks out the same tag, installs the locked dependencies with lifecycle scripts disabled, rebuilds the package, and creates and verifies its SHA-256 checksum. It uses GitHub's temporary workflow token to publish a GitHub Release with generated notes. It requires the tag to exist and attaches both the `.tgz` package and `SHA256SUMS.txt` directly to the release. No npm publishing token or long-lived release key is needed.
 
-Manual workflow dispatch validates and packages the selected branch, but only a tag run publishes a release. The intermediate Actions artifact expires after 14 days; the GitHub Release assets are the installation distribution.
+Manual workflow dispatch validates and packages the selected branch, but only a tag run publishes a release. The workflows do not upload Actions artifacts or enable dependency caching. GitHub Release assets are the installation distribution.
+
+The public project uses standard GitHub-hosted Actions runners, GitHub Pages for its demo, and GitHub Releases for distribution. This setup requires no additional paid service, external AI API, or hosted backend.
 
 ## Verify the published release
 
