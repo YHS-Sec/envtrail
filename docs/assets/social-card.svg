@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">EnvTrail — Environment drift, made visible.</title>
+  <desc id="desc">A light developer-tool banner with a cobalt EnvTrail mark and a compact report showing runtime differences and next steps.</desc>
+  <rect width="1280" height="640" fill="#f6f7f9"/>
+  <path d="M0 0H1280V8H0Z" fill="#4355d8"/>
+  <g transform="translate(72 83)">
+    <rect width="40" height="40" rx="11" fill="#4355d8"/>
+    <g fill="#fff" transform="rotate(28 20 20)"><rect x="11" y="20" width="4" height="12" rx="2"/><rect x="19" y="12" width="4" height="20" rx="2"/><rect x="27" y="5" width="4" height="27" rx="2"/></g>
+    <text x="54" y="29" fill="#202532" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="-1.2">EnvTrail</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="72" y="224" fill="#4355d8" font-size="11" font-weight="600" letter-spacing="1.7">DEVELOPER ENVIRONMENT DIAGNOSTICS</text>
+    <text x="69" y="293" fill="#202532" font-size="54" font-weight="700" letter-spacing="-2.2">Environment drift,</text>
+    <text x="69" y="356" fill="#202532" font-size="54" font-weight="700" letter-spacing="-2.2">made visible.</text>
+    <text x="72" y="409" fill="#747b89" font-size="18">Local snapshots. Precise comparisons.</text>
+    <text x="72" y="437" fill="#747b89" font-size="18">A useful next step for every finding.</text>
+    <g font-family="Consolas, monospace" font-size="11">
+      <rect x="72" y="483" width="124" height="31" rx="6" fill="#fff" stroke="#e0e4ed"/><text x="87" y="503" fill="#59637a">OFFLINE REPORTS</text>
+      <rect x="206" y="483" width="112" height="31" rx="6" fill="#fff" stroke="#e0e4ed"/><text x="221" y="503" fill="#59637a">NO TELEMETRY</text>
+    </g>
+    <text x="72" y="584" fill="#959ca8" font-size="12">Open source · Node.js projects · Windows, macOS &amp; Linux</text>
+  </g>
+  <g transform="translate(652 143)">
+    <rect x="4" y="9" width="556" height="365" rx="13" fill="#e8eaf0" opacity=".65"/>
+    <rect width="556" height="365" rx="13" fill="#ffffff" stroke="#e1e5ed"/>
+    <path d="M0 45H556" stroke="#e9ecf2"/>
+    <g font-family="Arial, Helvetica, sans-serif">
+      <rect x="19" y="16" width="14" height="14" rx="4" fill="#4355d8"/><text x="42" y="27" fill="#495268" font-size="10" font-weight="600">ENVTRAIL</text>
+      <circle cx="438" cy="23" r="2.5" fill="#54846a"/><text x="446" y="27" fill="#9098a7" font-size="8">Offline HTML report</text>
+      <text x="25" y="83" fill="#252c3b" font-size="21" font-weight="600" letter-spacing="-.6">Environment comparison</text>
+      <rect x="417" y="66" width="114" height="22" rx="5" fill="#fff0ef" stroke="#f3dedb"/><circle cx="428" cy="77" r="2" fill="#b63838"/><text x="435" y="80" fill="#b63838" font-size="8">Action required</text>
+      <text x="25" y="106" fill="#8b929e" font-size="9">Review the current environment against your baseline.</text>
+      <path d="M25 123H531M25 154H531" stroke="#e9ecf2"/>
+      <circle cx="28" cy="138" r="2" fill="#d75c55"/><text x="36" y="142" fill="#7c8390" font-size="9">1 blocking</text><circle cx="108" cy="138" r="2" fill="#d59a39"/><text x="116" y="142" fill="#7c8390" font-size="9">1 warning</text><circle cx="192" cy="138" r="2" fill="#8a94b3"/><text x="200" y="142" fill="#7c8390" font-size="9">0 notes</text><text x="472" y="142" fill="#a0a6b2" font-size="8">2 snapshots</text>
+      <rect x="25" y="171" width="296" height="166" rx="7" fill="#fff" stroke="#e6e9f0"/>
+      <text x="38" y="192" fill="#475066" font-size="10" font-weight="600">Runtime &amp; environment</text>
+      <path d="M25 203H321M25 229H321M25 263H321M25 297H321" stroke="#edf0f5"/>
+      <g fill="#99a1af" font-size="8"><text x="38" y="220">Environment</text><text x="153" y="220">Baseline</text><text x="239" y="220">Current</text></g>
+      <g font-size="9"><text x="38" y="250" fill="#697487">Node.js</text><text x="38" y="284" fill="#697487">npm</text><text x="38" y="318" fill="#697487">Required keys</text></g>
+      <g font-family="Consolas, monospace" font-size="9"><text x="153" y="250" fill="#7e889b">22.20.0</text><text x="239" y="250" fill="#303848" font-weight="700">24.1.0</text><circle cx="289" cy="247" r="2" fill="#d29b4a"/><text x="153" y="284" fill="#7e889b">10.9.3</text><text x="239" y="284" fill="#7e889b">10.9.3</text><text x="153" y="318" fill="#7e889b">3 / 3</text><text x="239" y="318" fill="#303848" font-weight="700">2 / 3</text><circle cx="278" cy="315" r="2" fill="#d29b4a"/></g>
+      <rect x="334" y="171" width="197" height="166" rx="7" fill="#fff" stroke="#e6e9f0"/>
+      <circle cx="349" cy="189" r="2" fill="#c94d48"/><text x="357" y="192" fill="#475066" font-size="10" font-weight="600">Resolve first</text>
+      <path d="M334 203H531" stroke="#edf0f5"/>
+      <rect x="347" y="218" width="15" height="15" rx="4" fill="#f1f3f9" stroke="#e8eaf2"/><text x="352" y="228" fill="#838ca0" font-size="8">1</text>
+      <text x="371" y="227" fill="#475066" font-size="9" font-weight="600">Required key is absent</text>
+      <text x="371" y="246" fill="#88909f" font-size="8">Configure DATABASE_URL</text><text x="371" y="260" fill="#88909f" font-size="8">locally, then capture again.</text>
+      <path d="M334 301H531" stroke="#edf0f5"/><text x="347" y="322" fill="#4355d8" font-size="9">View all findings ↗</text>
+    </g>
+  </g>
+</svg>

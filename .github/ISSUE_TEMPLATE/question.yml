@@ -1,0 +1,20 @@
+name: Usage question
+description: Ask for help using EnvTrail with a minimal, redacted example.
+title: '[Question]: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the README and `--help`. Keep examples synthetic and never include credentials or real .env files.
+  - type: textarea
+    id: question
+    attributes:
+      label: What are you trying to do?
+      description: Include your command, operating system, Node.js version, and the behavior you need help understanding.
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you tried?
+      description: Include redacted output if helpful.

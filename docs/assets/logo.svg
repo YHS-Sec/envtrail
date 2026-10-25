@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="88" viewBox="0 0 360 88" role="img" aria-labelledby="title desc">
+  <title id="title">EnvTrail</title>
+  <desc id="desc">A cobalt trail mark beside the EnvTrail wordmark.</desc>
+  <rect width="360" height="88" rx="16" fill="#ffffff" />
+  <rect x="21" y="21" width="46" height="46" rx="13" fill="#4355d8" />
+  <g fill="#ffffff" transform="rotate(28 44 44)"><rect x="33" y="43" width="5" height="14" rx="2.5"/><rect x="42" y="34" width="5" height="23" rx="2.5"/><rect x="51" y="26" width="5" height="31" rx="2.5"/></g>
+  <text x="85" y="58" fill="#202532" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" letter-spacing="-1.8">EnvTrail</text>
+</svg>

@@ -1,0 +1,69 @@
+{
+  "name": "@yhs-sec/envtrail",
+  "version": "0.1.0",
+  "description": "Find the environment differences behind 'it works on my machine'. Local snapshots, actionable comparisons, and private HTML reports.",
+  "type": "module",
+  "bin": {
+    "envtrail": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "test": "node scripts/test.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm test && npm run build && npm run format:check",
+    "demo": "npm run build && node scripts/demo.mjs",
+    "prepack": "npm run build",
+    "smoke:package": "npm run build && node scripts/smoke-package.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YHS-Sec/envtrail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YHS-Sec/envtrail/issues"
+  },
+  "homepage": "https://github.com/YHS-Sec/envtrail#readme",
+  "author": "YHS-Sec",
+  "license": "MIT",
+  "keywords": [
+    "developer-tools",
+    "environment",
+    "debugging",
+    "nodejs",
+    "cli",
+    "cross-platform",
+    "environment-diff"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "semver": "7.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/semver": "7.8.0",
+    "prettier": "3.9.10",
+    "typescript": "7.0.2"
+  }
+}

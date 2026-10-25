@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-25T09:00:00.000Z",
+  "system": {
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "runtime": {
+    "node": "22.20.0",
+    "npm": "10.9.3",
+    "pnpm": null,
+    "yarn": null,
+    "bun": null
+  },
+  "project": {
+    "engines": {
+      "node": ">=22 <23"
+    },
+    "packageManager": "npm@10.9.3",
+    "nodeVersionFiles": {
+      "nvmrc": "22.20.0",
+      "nodeVersion": null
+    },
+    "lockfiles": [
+      {
+        "name": "package-lock.json",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    ],
+    "environment": {
+      "required": [
+        {
+          "key": "DATABASE_URL",
+          "present": true,
+          "sources": ["dotenv"]
+        },
+        {
+          "key": "SESSION_SECRET",
+          "present": true,
+          "sources": ["process"]
+        }
+      ]
+    }
+  }
+}

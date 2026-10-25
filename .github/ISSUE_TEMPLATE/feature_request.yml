@@ -1,0 +1,28 @@
+name: Feature request
+description: Suggest a focused improvement to the environment comparison workflow.
+title: '[Feature]: '
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe a concrete workflow and what is difficult today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: A small example of the desired input and output is helpful. Use synthetic data.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include an existing command or workaround if relevant.
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy and compatibility considerations
+      description: Does this require collecting new data, executing a tool, or changing the snapshot format?

@@ -1,0 +1,10 @@
+node_modules
+dist
+.test-dist
+coverage
+package-lock.json
+docs/assets/demo.html
+docs/index.html
+docs/assets/*.svg
+docs/assets/*.png
+*.tgz
